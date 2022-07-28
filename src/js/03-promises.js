@@ -1,18 +1,27 @@
 function createPromise(position, delay) {
-  const shouldResolve = Math.random() > 0.3;
-  if (shouldResolve) {
-    // Fulfill
-  } else {
-    // Reject
-  }
+  return new Promise((fulfit, reject) => {
+    const shouldResolve = Math.random() > 0.3;
+    if (shouldResolve) {
+      // Fulfill
+    } else {
+      // Reject
+    }
+  });
 }
 const inputDelay = document.getElementsByName('delay');
 const inputStep = document.getElementsByName('step');
 const inputAmount = document.getElementsByName('amount');
-const submitBtn = document.querySelector('.button');
+const form = document.querySelector('.form');
 
-submitBtn.addEventListener('submit', event => {
-  console.log(event.cancelable);
+form.addEventListener('submit', event => {
   event.preventDefault();
-  createPromise(inputDelay, inputAmount);
+  const dataForm = new FormData(form);
+  console.log(dataForm.delay);
+  createPromise(2, 1500)
+    .then(({ position, delay }) => {
+      console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
+    })
+    .catch(({ position, delay }) => {
+      console.log(`❌ Rejected promise ${position} in ${delay}ms`);
+    });
 });
