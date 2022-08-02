@@ -1,2 +1,0 @@
-document.getElementsByName("delay"),document.getElementsByName("step"),document.getElementsByName("amount");const e=document.querySelector(".form");e.addEventListener("submit",(o=>{o.preventDefault();const t=new FormData(e);console.log(t.delay),new Promise(((e,o)=>{Math.random()})).then((({position:e,delay:o})=>{console.log(`✅ Fulfilled promise ${e} in ${o}ms`)})).catch((({position:e,delay:o})=>{console.log(`❌ Rejected promise ${e} in ${o}ms`)}))}));
-//# sourceMappingURL=03-promises.e8c66934.js.map
